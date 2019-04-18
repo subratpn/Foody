@@ -11,43 +11,38 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script></head>
+  
+  <style>
+  	#register_block{
+  		margin-top : 60px;
+  	}
+  	#boy_logo{
+  		margin-top : 10px;
+  	}
+  </style>
 <body>
 <div class="container-fluid">
 	<form action="./register" method="post">
-		<div class="row">
-			<div class="col">
-				Enter Your Name
-			</div>
-			<div class="col">
-				<input type="text" name="name">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				Enter Your Email
-			</div>
-			<div class="col">
-				<input type="email" name="email">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				Enter Your Password
-			</div>
-			<div class="col">
-				<input type="password" name="password">
+		<center>
+		<div class="card" style="width:400px" id="register_block">
+    		<center><img class="card-img-top" id="boy_logo" src="https://i.ibb.co/J2s3Qbq/boy.png" alt="Card image" style="width:50%;"></center>
+	    	<div class="card-body">
+	    		<div class="form-group">
+		    		<label for="name">Full Name</label>
+		    		<input type="text" class="form-control" id="name" name="name">
+		  		</div>
+				<div class="form-group">
+		    		<label for="email">Email</label>
+		    		<input type="email" class="form-control" id="email" name="email">
+		  		</div>
+		  		<div class="form-group">
+		    		<label for="password">Password</label>
+		    		<input type="password" class="form-control" id="password" name="password">
+		  		</div>
+				<input type="submit" class="btn btn-danger btn-block" value="Register"/>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				Confirm Your Password
-			</div>
-			<div class="col">
-				<input type="password" name="conf_password">
-			</div>
-		</div>
-		
-		<input type="submit" class="btn btn-primary" value="Register" style="margin-top : 50px;,margin-left : 500px;"/>
+		</center>
 	</form>
 </div>
 

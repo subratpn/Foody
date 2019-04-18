@@ -18,23 +18,12 @@ public class LoginController{
    public String printHello(ModelMap model) {
 	   
 	   
-	   CustomHibernateInstance.getSessionTransaction();
-	   Session session  = CustomHibernateInstance.session;
-	   Transaction transaction = CustomHibernateInstance.transaction;
+		/*
+		 * CustomHibernateInstance.getSessionTransaction(); Session session =
+		 * CustomHibernateInstance.session; Transaction transaction =
+		 * CustomHibernateInstance.transaction;
+		 */
 	   
-	   
-	   User user =new User();    
-	   user.setUserid("1");
-	   user.setUseremail("subrat@gmail.com");
-	   user.setUserpassword("12345");
-	   
-	   session.save(user);
-	   transaction.commit();
-	        
-	   
-	   System.out.println("successfully saved");     
-	   
-	   model.addAttribute("message", "User Created!");
 	   return "login";
       
    }
