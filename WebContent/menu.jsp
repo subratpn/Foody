@@ -69,7 +69,7 @@
 							<a href="./cart.jsp"><img src="https://i.ibb.co/wQdbbhw/cart.png" alt="cart" border="0"></a>					
 						</li>
 						<li class="nav-item" id="cart_value">
-							<h6>0</h6>							
+							<h6></h6>							
 						</li>
 					  </ul>
 				</nav>
@@ -154,11 +154,18 @@
 			$(".add").click(
 				
 				function(){
-					var cart_val = $("#cart_value").text();
-					console.log("Old Value "+cart_val);
-					cart_val = parseInt(cart_val) + 1;
+					var cart_val = $("#cart_value").text().trim();
+					console.log("Value Length :"+cart_val.length);
+					if(cart_val.length === 0){
+						console.log("1st Flow");
+						cart_val = 1;
+					}else{
+						console.log("2nd Flow");
+						cart_val = parseInt(cart_val) + 1;
+					}
 					console.log("New Value "+cart_val);
 					$("#cart_value").text(cart_val);
+					
 				}
 			);
 		</script>
