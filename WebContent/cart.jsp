@@ -14,7 +14,18 @@
 </head>
 <body>
 
+		<% boolean emptyCart = false;
+			
+			if(emptyCart){
+		%>
+			<center>
+				<div class="container-fluid">
+					
+					<img src="https://i.ibb.co/tMzyM3v/empty-cart.png" style="width:40%;"/>
+				</div>
+			</center>
 
+		<% }else{ %>
 		<div class="container-fluid">
 			<div class="jumbotron text-center" style="background-color : #1565C0; color: white;">
   				<h2>Biryani Zone</h2> 
@@ -59,6 +70,8 @@
 				}		
 			);
 		</script>
+		
+		<% } %>
 
 </body>
 </html>

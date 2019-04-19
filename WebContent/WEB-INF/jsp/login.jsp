@@ -22,7 +22,7 @@
   </style>
 <body>
 <div class="container-fluid">
-	<form action="./register" method="post">
+	<form action="./login" method="post">
 		<center>
 		<div class="card" style="width:400px" id="register_block">
     		<center><img class="card-img-top" id="boy_logo" src="https://i.ibb.co/RQyz9Vv/man.png" alt="Card image" style="width:50%;"></center>

@@ -6,8 +6,8 @@
           <hibernate-mapping>
           
 	          <class name="pojo.User" table="userdata">
-	          <id name="userid">
-	          	<generator class="assigned"></generator>
+	          <id name="userid" type="integer">
+	          	<generator class="increment"></generator>
 	          </id>
 	          <property name="useremail"></property>
 	          <property name="userpassword"></property>

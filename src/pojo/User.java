@@ -3,23 +3,15 @@ package pojo;
 public class User {
 
 	
-	String userid;
+	Integer userid;
 	String useremail;
 	String userpassword;
 	String username;
 	
-	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	public String getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 	public String getUseremail() {
@@ -34,12 +26,12 @@ public class User {
 	public void setUserpassword(String userpassword) {
 		this.userpassword = userpassword;
 	}
-	
-	
-	
-	
-	
-	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	
 	
 	

@@ -9,8 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pojo.CustomHibernateInstance;
+
 import pojo.User;
+import util.CustomHibernateInstance;
 
 @Controller
 @RequestMapping("/register")
@@ -30,15 +31,18 @@ public class RegistrationController {
 		 String email = request.getParameter("email");
 		 String password = request.getParameter("password");
 		
-		 CustomHibernateInstance.getSessionTransaction();
-		 Session session  = CustomHibernateInstance.session;
-		 Transaction transaction = CustomHibernateInstance.transaction;
+		 Session session = CustomHibernateInstance.getSession();
+		 System.out.println("Got Session");
+		 Transaction transaction = session.beginTransaction();
+		 System.out.println("Got Trasaction");
 		 
 		 User u = new User(); 
-		 u.setUserid("1");
 		 u.setUseremail(email);
 		 u.setUserpassword(password);
 		 u.setUsername(name);
+		 
+		 
+		 
 		 session.save(u);
 		
 		 transaction.commit();
