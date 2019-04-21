@@ -5,13 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import pojo.User;
 import util.CustomHibernateInstance;
@@ -27,8 +25,10 @@ public class LoginController{
    }
    
    
+   @SuppressWarnings("unchecked")
    @RequestMapping(method = RequestMethod.POST)
-   public String loginUser(HttpServletRequest request,HttpServletResponse response) {
+   public ModelAndView loginUser(HttpServletRequest request,HttpServletResponse response){
+	   ModelAndView modelAndView = new ModelAndView();
 	   Session session = CustomHibernateInstance.getSession();
 	   String findUserHQL = "FROM User U WHERE U.useremail = '"+request.getParameter("email")+"' and U.userpassword='"+request.getParameter("password")+"'";
 	   System.out.println(findUserHQL);
@@ -36,12 +36,14 @@ public class LoginController{
 	   System.out.println(userList);
 	   if(userList.isEmpty()) {
 		   System.out.println("Forwarding to Login");
-		   return "login";
+		   modelAndView.setViewName("login");
 	   }
 	   else {
 		   System.out.println("Going with Child");
-		   return "index";
+		   modelAndView.setViewName("redirect:/");
 	   }
+	   
+	   return modelAndView;
       
    }
 

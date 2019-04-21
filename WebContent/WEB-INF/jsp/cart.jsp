@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,64 +17,69 @@
 </head>
 <body>
 
-		<% boolean emptyCart = false;
+		<c:if test="${isCartEmpty}">
 			
-			if(emptyCart){
-		%>
 			<center>
 				<div class="container-fluid">
 					
 					<img src="https://i.ibb.co/tMzyM3v/empty-cart.png" style="width:40%;"/>
 				</div>
 			</center>
-
-		<% }else{ %>
-		<div class="container-fluid">
-			<div class="jumbotron text-center" style="background-color : #1565C0; color: white;">
-  				<h2>Biryani Zone</h2> 
+		
+		</c:if>
+		
+		
+		<c:if test="${not isCartEmpty}">
+				
+			<div class="container-fluid">
+			
+			<div class="jumbotron">
+				<center><h1>CART</h1></center>
 			</div>
 			<table class="table table-bordered" style="text-align: center;">
 			    <thead>
 			      <tr>
 			        <th>Item Name</th>
 			        <th>Quantity</th>
-			        <th>Price</th>
+			        <th>Price/Unit</th>
+			        <th>Total Price</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			      <tr>
-			        <td>Biryani</td>
-			        <td>2</td>
-			        <td>Rs. 180.00</td>
-			      </tr>
-			      <tr>
-			        <td>Dosa</td>
-			        <td>1</td>
-			        <td>Rs. 60.00</td>
-			      </tr>
-			      <tr>
-			        <td colspan="2">Total Amount : </td>
-			        <td>Rs. 240.00</td>
-			      </tr>
+			      <c:forEach var="item" items="${menuData}">
+			      	<tr>
+				        <td>${item.menu.name}</td>
+				        <td>${item.quantity}</td>
+				        <td>${item.menu.price}</td>
+				        <td>Rs. ${item.menu.price * item.quantity}</td>
+			      	</tr>
+			      </c:forEach>
+			      	<tr>
+				        <td colspan="3">Total Payable Amount : </td>
+				        <td>Rs. ${totalValue}</td>
+			      	</tr>
 			    </tbody>
 			</table>
 			<div class="container-fluid">
 				<center><button id="checkout" style="width:50%" class="btn btn-block btn-danger">Proceed To Checkout</button></center>
 			</div>
 		</div>
+		</c:if>
+
+		
+		
 		
 		<script>
+		
 			$("#checkout").click(
 				function(){
 					
 					window.alert("Successfully Ordered");
-					window.location ="./index.jsp";
+					window.location ="./";
 					
 				}		
 			);
 		</script>
-		
-		<% } %>
 
 </body>
 </html>

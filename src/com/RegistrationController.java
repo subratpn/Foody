@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import pojo.User;
 import util.CustomHibernateInstance;
@@ -25,7 +25,9 @@ public class RegistrationController {
 	   
 	   
 	   @RequestMapping(method = RequestMethod.POST)
-	   public String registerUser(HttpServletRequest request,HttpServletResponse response) {
+	   public ModelAndView registerUser(HttpServletRequest request,HttpServletResponse response) {
+		 
+		 ModelAndView modelAndView = new ModelAndView();
 		 System.out.println("Do Register"); 
 		 String name = request.getParameter("name");
 		 String email = request.getParameter("email");
@@ -47,7 +49,8 @@ public class RegistrationController {
 		
 		 transaction.commit();
 		 
-		 return "index";
+		 modelAndView.setViewName("redirect:/");
+		 return modelAndView;
 		 
 	   }   
 	   
