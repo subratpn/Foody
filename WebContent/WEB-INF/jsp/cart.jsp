@@ -14,6 +14,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 		
+		<style>
+			body{
+				font-family: 'Nunito', sans-serif;
+			}
+		</style>
 </head>
 <body>
 
@@ -33,12 +38,12 @@
 				
 			<div class="container-fluid">
 			
-			<div class="jumbotron">
+			<div class="jumbotron" style="background-color:#1565C0;color:white;margin:10px;">
 				<center><h1>CART</h1></center>
 			</div>
 			<table class="table table-bordered" style="text-align: center;">
 			    <thead>
-			      <tr>
+			      <tr style="color:#33691E;">
 			        <th>Item Name</th>
 			        <th>Quantity</th>
 			        <th>Price/Unit</th>
@@ -61,7 +66,7 @@
 			    </tbody>
 			</table>
 			<div class="container-fluid">
-				<center><button id="checkout" style="width:50%" class="btn btn-block btn-danger">Proceed To Checkout</button></center>
+				<center><button id="checkout" style="width:40%" class="btn btn-block btn-danger">Proceed To Checkout</button></center>
 			</div>
 		</div>
 		</c:if>
